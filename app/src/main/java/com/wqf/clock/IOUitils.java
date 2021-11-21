@@ -2,6 +2,8 @@ package com.wqf.clock;
 
 import static com.wqf.clock.MainActivity.path;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +20,10 @@ public class IOUitils {
         sp.save("beginTime", plan.beginTime);
         sp.save("finishTime", plan.finishTime);
         sp.save("mould", plan.mould.name);
+
+        //调试信息
+        if (sp.getString("plan",null)!=null)
+            Log.i(plan.name,"真的保存了");
     }
 
     public static void saveMould(Mould mould) {
