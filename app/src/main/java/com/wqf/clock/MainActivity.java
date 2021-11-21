@@ -39,6 +39,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         save=findViewById(R.id.save);
         setPlanList.setOnClickListener(this);
         save.setOnClickListener(this);
+
+        //测试：
+        Plan plan1=new Plan();
+        plan1.name="学习英语";
+        plan1.description="学习英语非常重要，所以我要努力";
+        plan1.beginTime=1637473520000L;
+        plan1.finishTime=1637480720231L;
+
+        Plan plan2=new Plan();
+        plan2.name="学习数学";
+        plan2.description="学习数学不重要，所以我不要努力";
+        plan2.beginTime=1637473520000L;
+        plan2.finishTime=1637480790231L;
+
+        planList.add(plan1);
+        planList.add(plan2);
     }
 
     @Override
