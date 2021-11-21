@@ -24,7 +24,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/setPlan"
+        android:id="@+id/setPlanList"
         android:text="去制定计划"
         android:textSize="24dp"
         android:layout_gravity="center_horizontal"

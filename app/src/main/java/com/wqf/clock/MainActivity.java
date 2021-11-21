@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageView homeImage;
     TextView homeText;
-    Button setPlan;
+    Button setPlanList;
     Button save;
 
     //需要用到的全局变量
@@ -35,15 +35,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         homeImage=findViewById(R.id.homeImage);
         homeText=findViewById(R.id.homeText);
-        setPlan=findViewById(R.id.setPlan);
+        setPlanList=findViewById(R.id.setPlanList);
         save=findViewById(R.id.save);
-        setPlan.setOnClickListener(this);
+        setPlanList.setOnClickListener(this);
         save.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v==setPlan){
+        if(v==setPlanList){
             Intent intent=new Intent(MainActivity.this,PlanListActivity.class);
             startActivity(intent);
         }
