@@ -14,7 +14,7 @@
             android:name=".ConfigActivity"
             android:exported="false" />
         <activity
-            android:name=".PlanList"
+            android:name=".PlanListActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

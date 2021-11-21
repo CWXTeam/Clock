@@ -1,6 +1,7 @@
 package com.wqf.clock;
 
 public class Plan {
+
     protected String name;   // 计划的名称
     protected String description;  // 计划的描述
     protected long workTime;  // 单次学习的时间
