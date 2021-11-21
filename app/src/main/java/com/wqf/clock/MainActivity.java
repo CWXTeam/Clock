@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +68,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (v == save) {
 //            保存所有配置
+//            long longTime=0L;
+//            try {
+//                 longTime=TimeUtil.dateToStamp("2021-11-21 20:45:58");
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+//            homeText.setText(String.valueOf(longTime));
         }
     }
 }
