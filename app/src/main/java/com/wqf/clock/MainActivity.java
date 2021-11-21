@@ -2,29 +2,53 @@ package com.wqf.clock;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView diana;
-    TextView textView;
+    //组件
+
+    ImageView homeImage;
+    TextView homeText;
+    Button setPlan;
+    Button save;
+
+    //需要用到的全局变量
+
+    //保存的配置的目录
     static String path="/data/data/com.wqf.clock/shared_prefs";
+    //当前检测到的Plan
+    List<Plan> planList=new ArrayList<>();
+    //当前检测到的模板
+    List<Mould> MouldList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView=findViewById(R.id.diana_said);
-        SpUtils sp=SpUtils.getInstance("user");
-        sp.save("name","xiaoming");
-        sp.save("age",24);
-        String str=sp.getString("name","");
-        textView.setText(str);
-        List<String> arrayList=MyFileUtils.getFilesAllName(path);
-        textView.setText(arrayList.get(0));
+        homeImage=findViewById(R.id.homeImage);
+        homeText=findViewById(R.id.homeText);
+        setPlan=findViewById(R.id.setPlan);
+        save=findViewById(R.id.save);
+        setPlan.setOnClickListener(this);
+        save.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v==setPlan){
+            Intent intent=new Intent(MainActivity.this,PlanListActivity.class);
+            startActivity(intent);
+        }
+        if (v==save){
+//            保存所有配置
+        }
     }
 }

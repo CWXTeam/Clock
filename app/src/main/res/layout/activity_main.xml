@@ -7,14 +7,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="500dp"
-        android:id="@+id/diana"
+        android:id="@+id/homeImage"
         android:src="@drawable/diana">
     </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/diana_said"
+        android:id="@+id/homeText"
         android:text="关注嘉然！顿顿解馋！"
         android:layout_gravity="center_horizontal"
         android:textSize="24dp"
@@ -24,8 +24,18 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/setText"
-        android:text="改变语句"
+        android:id="@+id/setPlan"
+        android:text="去制定计划"
+        android:textSize="24dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/purple_200">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:text="保存所有配置"
         android:textSize="24dp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/purple_200">
