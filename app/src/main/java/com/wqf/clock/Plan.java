@@ -23,6 +23,7 @@ public class Plan {
         clocks = new ArrayList<Clock>();
     }
 
+
     protected ArrayList<Clock> setClocks() throws ClockException {
         // 根据开始时间、结束时间、单次学习时间和单次休息、使用的闹铃模板时间设定一定数量的闹钟
 
@@ -36,12 +37,14 @@ public class Plan {
             throw new ClockException("工作一次的时间不能超过总时间！")
         } else if (breakTime > (finishTime - beginTime)) {
             throw new ClockException("休息一次的时间不能超过总时间！")
+
         }
 
         ArrayList<Clock> clks = new ArrayList<clock>();
         long clkTime = beginTime;
 
         clks.add(new Clock(clkTime, new Mould(), "WORK"));  // 工作时间开始！
+
 
         while (true) {
             // 如果工作一段时间后还没到finishTime，则响一次下课铃，开始休息
@@ -55,6 +58,7 @@ public class Plan {
 
             // 如果休息一段时间后还没到finishTime，则响一次上课铃，开始工作
             clkTime += breakTime;
+
             if (clkTime < finishTime) {
                 clks.add(clkTime, new Mould(), "WORK");
             } else {  // 否则，到达finishTime时再响一次下课铃，结束
@@ -67,35 +71,42 @@ public class Plan {
         return clks;
     }
 
+
     protected void setName(String name) {
         this.name = name;
         return;
     }
+
 
     protected void setDescription(String descrpt) {
         this.description = descrpt;
         return;
     }
 
+
     protected void setWorkTime(long time) {
         this.workTime = time;
         return;
     }
+
 
     protected void setBreakTime(long time) {
         this.breakTime = time;
         return;
     }
 
+
     protected void setBeginTime(long time) {
         this.beginTime = time;
         return;
     }
 
+
     protected void setFinishTime(long time) {
         this.finishTime = time;
         return;
     }
+
 
     protected void setMould(Mould mld) {
         this.mould = mld;
