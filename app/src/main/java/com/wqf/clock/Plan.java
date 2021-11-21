@@ -1,5 +1,6 @@
 package com.wqf.clock;
 
+
 public class Plan {
 
     protected String name;   // 计划的名称
@@ -22,23 +23,21 @@ public class Plan {
         clocks = new ArrayList<Clock>();
     }
 
-    protected ArrayList<Clock> setClocks() throws ClockException{
+
+    protected ArrayList<Clock> setClocks() throws ClockException {
         // 根据开始时间、结束时间、单次学习时间和单次休息、使用的闹铃模板时间设定一定数量的闹钟
 
-        if(workTime <= 0){
+        if (workTime <= 0) {
             throw new ClockException("工作一次的时间不能为0！");
-        }
-        else if(breakTime <= 0){
+        } else if (breakTime <= 0) {
             throw new ClockException("休息一次的时间不能为0！");
-        }
-        else if(finishTime <= beginTime){
+        } else if (finishTime <= beginTime) {
             throw new ClockException("结束时间不能和开始时间相等！")
-        }
-        else if(workTime > (finishTime - beginTime)){
+        } else if (workTime > (finishTime - beginTime)) {
             throw new ClockException("工作一次的时间不能超过总时间！")
-        }
-        else if(breakTime > (finishTime - beginTime)){
-            throw  new ClockException("休息一次的时间不能超过总时间！")
+        } else if (breakTime > (finishTime - beginTime)) {
+            throw new ClockException("休息一次的时间不能超过总时间！")
+
         }
 
         ArrayList<Clock> clks = new ArrayList<clock>();
@@ -46,23 +45,23 @@ public class Plan {
 
         clks.add(new Clock(clkTime, new Mould(), "WORK"));  // 工作时间开始！
 
-        while(true){
+
+        while (true) {
             // 如果工作一段时间后还没到finishTime，则响一次下课铃，开始休息
             clkTime += workTime;
-            if(clkTime < finishTime){
+            if (clkTime < finishTime) {
                 clks.add(new Clock(clkTime, new Mould(), "BREAK"));
-            }
-            else{  // 否则，在到达finishTime时响一次下课铃，结束
+            } else {  // 否则，在到达finishTime时响一次下课铃，结束
                 clks.add(new Clock(finishTime, new Mould(), "BREAK"));
                 break;
             }
 
             // 如果休息一段时间后还没到finishTime，则响一次上课铃，开始工作
             clkTime += breakTime;
-            if(clkTime < finishTime){
+
+            if (clkTime < finishTime) {
                 clks.add(clkTime, new Mould(), "WORK");
-            }
-            else{  // 否则，到达finishTime时再响一次下课铃，结束
+            } else {  // 否则，到达finishTime时再响一次下课铃，结束
                 clks.add(new Clock(finishTime, new Mould(), "BREAK"));
                 break;
             }
@@ -72,39 +71,47 @@ public class Plan {
         return clks;
     }
 
-    protected void setName(String name){
+
+    protected void setName(String name) {
         this.name = name;
         return;
     }
 
-    protected void setDescription(String descrpt){
+
+    protected void setDescription(String descrpt) {
         this.description = descrpt;
         return;
     }
 
-    protected void setWorkTime(long time){
+
+    protected void setWorkTime(long time) {
         this.workTime = time;
         return;
     }
 
-    protected void setBreakTime(long time){
+
+    protected void setBreakTime(long time) {
         this.breakTime = time;
         return;
     }
 
-    protected void setBeginTime(long time){
+
+    protected void setBeginTime(long time) {
         this.beginTime = time;
         return;
     }
 
-    protected void setFinishTime(long time){
+
+    protected void setFinishTime(long time) {
         this.finishTime = time;
         return;
     }
 
-    protected void setMould(Mould mld){
+
+    protected void setMould(Mould mld) {
         this.mould = mld;
         return;
     }
 
 }
+
