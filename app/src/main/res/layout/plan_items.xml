@@ -11,8 +11,7 @@
         android:id="@+id/plan_name"
         android:text="null"
         android:textSize="12dp"
-        android:textColor="@color/purple_200">
-    </TextView>
+        android:textColor="@color/purple_200"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,8 +19,7 @@
         android:id="@+id/plan_description"
         android:text="null"
         android:textSize="12dp"
-        android:textColor="@color/purple_200">
-    </TextView>
+        android:textColor="@color/purple_200"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,8 +27,7 @@
         android:id="@+id/plan_start_time"
         android:text="null"
         android:textSize="12dp"
-        android:textColor="@color/purple_200">
-    </TextView>
+        android:textColor="@color/purple_200"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,6 +35,5 @@
         android:id="@+id/plan_end_time"
         android:text="null"
         android:textSize="12dp"
-        android:textColor="@color/purple_200">
-    </TextView>
+        android:textColor="@color/purple_200"></TextView>
 </LinearLayout>

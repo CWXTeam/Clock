@@ -13,7 +13,7 @@ public class ContextApplication extends Application {
         ContextApplication.context = getApplicationContext();
     }
 
-    public static Context getAppContext(){
+    public static Context getAppContext() {
         return ContextApplication.context;
     }
 }

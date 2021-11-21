@@ -10,8 +10,7 @@
         android:id="@+id/confg_name"
         android:text="计划的名称为："
         android:textSize="24dp"
-        android:textColor="@color/purple_200">
-    </TextView>
+        android:textColor="@color/purple_200"></TextView>
 
 
 </LinearLayout>

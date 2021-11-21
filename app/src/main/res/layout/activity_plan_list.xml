@@ -17,8 +17,7 @@
             android:text="新增计划"
             android:textSize="24dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/purple_200">
-        </Button>
+            android:textColor="@color/purple_200"></Button>
 
         <Button
             android:layout_width="wrap_content"
@@ -27,14 +26,13 @@
             android:text="返回主页"
             android:textSize="24dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/purple_200">
-        </Button>
+            android:textColor="@color/purple_200"></Button>
 
     </LinearLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listview">
-    </ListView>
+        android:id="@+id/listview"></ListView>
 
 </LinearLayout>

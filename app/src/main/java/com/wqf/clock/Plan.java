@@ -1,6 +1,8 @@
 package com.wqf.clock;
 
 
+import java.util.ArrayList;
+
 public class Plan {
 
     protected String name;   // 计划的名称
@@ -32,15 +34,15 @@ public class Plan {
         } else if (breakTime <= 0) {
             throw new ClockException("休息一次的时间不能为0！");
         } else if (finishTime <= beginTime) {
-            throw new ClockException("结束时间不能和开始时间相等！")
+            throw new ClockException("结束时间不能和开始时间相等！");
         } else if (workTime > (finishTime - beginTime)) {
-            throw new ClockException("工作一次的时间不能超过总时间！")
+            throw new ClockException("工作一次的时间不能超过总时间！");
         } else if (breakTime > (finishTime - beginTime)) {
-            throw new ClockException("休息一次的时间不能超过总时间！")
+            throw new ClockException("休息一次的时间不能超过总时间！");
 
         }
 
-        ArrayList<Clock> clks = new ArrayList<clock>();
+        ArrayList<Clock> clks = new ArrayList<Clock>();
         long clkTime = beginTime;
 
         clks.add(new Clock(clkTime, new Mould(), "WORK"));  // 工作时间开始！
@@ -60,7 +62,7 @@ public class Plan {
             clkTime += breakTime;
 
             if (clkTime < finishTime) {
-                clks.add(clkTime, new Mould(), "WORK");
+                clks.add(new Clock(clkTime, new Mould(), "WORK"));
             } else {  // 否则，到达finishTime时再响一次下课铃，结束
                 clks.add(new Clock(finishTime, new Mould(), "BREAK"));
                 break;

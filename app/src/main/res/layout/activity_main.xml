@@ -8,8 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="500dp"
         android:id="@+id/homeImage"
-        android:src="@drawable/diana">
-    </ImageView>
+        android:src="@drawable/diana"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,8 +17,7 @@
         android:text="关注嘉然！顿顿解馋！"
         android:layout_gravity="center_horizontal"
         android:textSize="24dp"
-        android:textColor="@color/purple_200">
-    </TextView>
+        android:textColor="@color/purple_200"></TextView>
 
     <Button
         android:layout_width="wrap_content"
@@ -28,8 +26,7 @@
         android:text="去制定计划"
         android:textSize="24dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/purple_200">
-    </Button>
+        android:textColor="@color/purple_200"></Button>
 
     <Button
         android:layout_width="wrap_content"
@@ -38,6 +35,5 @@
         android:text="保存所有配置"
         android:textSize="24dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/purple_200">
-    </Button>
+        android:textColor="@color/purple_200"></Button>
 </LinearLayout>
