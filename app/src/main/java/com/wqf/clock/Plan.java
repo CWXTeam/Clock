@@ -67,6 +67,43 @@ public class Plan {
             }
         }
 
+        clocks = clks;
+        return clks;
+    }
+
+    protected void setName(String name){
+        this.name = name;
+        return;
+    }
+
+    protected void setDescription(String descrpt){
+        this.description = descrpt;
+        return;
+    }
+
+    protected void setWorkTime(long time){
+        this.workTime = time;
+        return;
+    }
+
+    protected void setBreakTime(long time){
+        this.breakTime = time;
+        return;
+    }
+
+    protected void setBeginTime(long time){
+        this.beginTime = time;
+        return;
+    }
+
+    protected void setFinishTime(long time){
+        this.finishTime = time;
+        return;
+    }
+
+    protected void setMould(Mould mld){
+        this.mould = mld;
+        return;
     }
 
 }
