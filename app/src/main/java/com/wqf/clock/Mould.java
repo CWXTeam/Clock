@@ -25,6 +25,6 @@ public class Mould {
 
     public String setWorkClkPath(String breakClkPath) {
         this.workClkPath = workClkPath;
-        return;
+        return null;
     }
 }
