@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:id="@+id/homeImage"
-        android:src="@drawable/diana">
-    </ImageView>
+        android:layout_height="wrap_content"
+        android:id="@+id/plan_name"
+        android:text="null"
+        android:textSize="12dp"
+        android:textColor="@color/purple_200">
+    </TextView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeText"
-        android:text="关注嘉然！顿顿解馋！"
-        android:layout_gravity="center_horizontal"
-        android:textSize="24dp"
+        android:id="@+id/plan_description"
+        android:text="null"
+        android:textSize="12dp"
         android:textColor="@color/purple_200">
     </TextView>
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/setPlanList"
-        android:text="去制定计划"
-        android:textSize="24dp"
-        android:layout_gravity="center_horizontal"
+        android:id="@+id/plan_start_time"
+        android:text="null"
+        android:textSize="12dp"
         android:textColor="@color/purple_200">
-    </Button>
+    </TextView>
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/save"
-        android:text="保存所有配置"
-        android:textSize="24dp"
-        android:layout_gravity="center_horizontal"
+        android:id="@+id/plan_end_time"
+        android:text="null"
+        android:textSize="12dp"
         android:textColor="@color/purple_200">
-    </Button>
+    </TextView>
 </LinearLayout>
