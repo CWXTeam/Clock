@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //需要用到的全局变量
 
     //保存的配置的目录
-    static String path="/data/data/com.wqf.clock/shared_prefs";
+    protected final static String path="/data/data/com.wqf.clock/shared_prefs";
     //当前检测到的Plan
-    List<Plan> planList=new ArrayList<>();
+    protected static List<Plan> planList=new ArrayList<>();
     //当前检测到的模板
-    List<Mould> MouldList=new ArrayList<>();
+    protected static List<Mould> MouldList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
