@@ -4,13 +4,59 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <EditText
+        android:id="@+id/config_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/confg_name"
-        android:text="计划的名称为："
-        android:textSize="24dp"
-        android:textColor="@color/purple_200"></TextView>
+        android:text="此处输入计划名称"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></EditText>
 
+    <EditText
+        android:id="@+id/config_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="此处输入计划的描述"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></EditText>
 
+    <EditText
+        android:id="@+id/config_begin_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="此处输入计划的开始时间"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></EditText>
+
+    <EditText
+        android:id="@+id/config_finish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="此处输入计划的完成时间"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></EditText>
+
+    <EditText
+        android:id="@+id/config_work_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="此处输入计划的单次工作时间"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></EditText>
+
+    <EditText
+        android:id="@+id/config_break_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="此处输入计划的单次休息时间"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></EditText>
+
+    <Button
+        android:id="@+id/yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></Button>
 </LinearLayout>
