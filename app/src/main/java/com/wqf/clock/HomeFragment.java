@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class HomeFragment extends Fragment {
+    TextView dianaSaid;
+    Button setText;
     public static HomeFragment newInstance(String label) {
         Bundle args = new Bundle();
         args.putString("label", label);
@@ -27,5 +31,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        dianaSaid=getView().findViewById(R.id.diana_said);
+        setText=getView().findViewById(R.id.setText);
+        setText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dianaSaid.setText("好吧");
+            }
+        });
     }
 }
