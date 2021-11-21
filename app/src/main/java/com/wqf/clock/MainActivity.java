@@ -51,9 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Plan plan2 = new Plan();
         plan2.name = "学习数学";
         plan2.description = "学习数学不重要，所以我不要努力";
-        Integer i= Math.toIntExact(1637480790231L);
         plan2.beginTime = 1637480790231L;
-        plan2.finishTime = i;
+        plan2.finishTime = 1637486790231L;
 
 
         planList.add(plan1);

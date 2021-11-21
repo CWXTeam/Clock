@@ -20,43 +20,217 @@
         android:textColor="@color/purple_200"
         android:textSize="24dp"></EditText>
 
-    <EditText
-        android:id="@+id/config_begin_time"
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="开始于"
+       android:textColor="@color/purple_200"
+       android:textSize="24dp"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/begin_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2021"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/begin_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="月"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/begin_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/begin_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/begin_minute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+    </LinearLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="此处输入计划的开始时间"
+        android:text="结束于"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/finish_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2021"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/finish_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="月"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/finish_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/finish_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+
+        <EditText
+            android:id="@+id/finish_minute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp"></TextView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单次工作时长（分钟）"
+        android:textColor="@color/purple_200"
+        android:textSize="24dp"></TextView>
+
+    <EditText
+        android:id="@+id/work_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12"
         android:textColor="@color/purple_200"
         android:textSize="24dp"></EditText>
 
-    <EditText
-        android:id="@+id/config_finish_time"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="此处输入计划的完成时间"
+        android:text="单次休息时长（分钟）"
         android:textColor="@color/purple_200"
-        android:textSize="24dp"></EditText>
+        android:textSize="24dp"></TextView>
 
     <EditText
-        android:id="@+id/config_work_time"
+        android:id="@+id/break_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="此处输入计划的单次工作时间"
-        android:textColor="@color/purple_200"
-        android:textSize="24dp"></EditText>
-
-    <EditText
-        android:id="@+id/config_break_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="此处输入计划的单次休息时间"
+        android:text="12"
         android:textColor="@color/purple_200"
         android:textSize="24dp"></EditText>
 
     <Button
-        android:id="@+id/yes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/yes"
         android:text="确定"
-        android:textColor="@color/purple_200"
-        android:textSize="24dp"></Button>
+        android:textSize="24dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/purple_200"></Button>
 </LinearLayout>
