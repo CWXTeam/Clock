@@ -34,6 +34,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         planName.setText(plan.name);
         planDescription.setText(plan.description);
         //时间不能用时间戳，要用正儿八经的人类时间。
+
         planStartTime.setText(TimeUtil.getStringTime(plan.beginTime));
         planEndTime.setText(TimeUtil.getStringTime(plan.finishTime));
         return view;

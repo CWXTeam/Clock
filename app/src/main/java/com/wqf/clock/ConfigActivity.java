@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,10 +69,10 @@ public class ConfigActivity extends AppCompatActivity {
 
                 //从editText中取得字符串
                 String BeginYear=begin_year.getText().toString();
-                String BeginMonth=begin_year.getText().toString();
-                String BeginDay=begin_year.getText().toString();
-                String BeginHour=begin_year.getText().toString();
-                String BeginMinute=begin_year.getText().toString();
+                String BeginMonth=begin_month.getText().toString();
+                String BeginDay=begin_day.getText().toString();
+                String BeginHour=begin_hour.getText().toString();
+                String BeginMinute=begin_minute.getText().toString();
 
                 //化为时间
                 try {
@@ -79,6 +80,11 @@ public class ConfigActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
+                //测试1
+
+                Log.d("begintime", String.valueOf(plan.beginTime));
+                Log.d("begintime", TimeUtil.getStringTime(plan.beginTime));
 
                 String FinishYear=finish_year.getText().toString();
                 String FinishMonth=finish_month.getText().toString();
@@ -91,6 +97,10 @@ public class ConfigActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
+                //测试2
+                Log.d("finishtime", String.valueOf(plan.finishTime));
+                Log.d("finishtime", TimeUtil.getStringTime(plan.finishTime));
 
                 String WorkTime=work_time.getText().toString();
                 plan.workTime = Long.parseLong(WorkTime)*60*1000;

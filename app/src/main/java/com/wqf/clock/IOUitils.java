@@ -1,13 +1,13 @@
 package com.wqf.clock;
 
-import static com.wqf.clock.MainActivity.path;
-
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class IOUitils {
+
+    protected final static String path = "/data/data/com.wqf.clock/shared_prefs";
 
     public static void savePlan(Plan plan) {
         // 保存plan为plan.xml文件
@@ -46,7 +46,7 @@ public class IOUitils {
                 if (sp.getString("object", "").matches("plan")) {  // 若文件储存的对象类型为Plan
                     Plan plan = new Plan();
 
-                    plan.name = sp.getString("name", "未知计划");
+                    plan.name = sp.getString("plan", "未知计划");
                     plan.description = sp.getString("description", "");
                     plan.workTime = sp.getLong("workTime", 0);
                     plan.breakTime = sp.getLong("breakTime", 0);
@@ -94,10 +94,26 @@ public class IOUitils {
         // 读取所有文件中的Plan对象到ArrayList中，返回这个ArrayList对象
         // 若没有读取到任何一个Plan对象，则返回的ArrayList对象的容器为空
         List<String> fileArray = MyFileUtils.getFilesAllName(path);
+
+        //测试1
+
+        for (String name:fileArray
+             ) {
+            Log.d("filename",name);
+        }
+
+        //测试1通过
+
+
         ArrayList<Plan> plans = new ArrayList<Plan>();
         Plan plan = null;
         for (String file : fileArray) {
             if ((plan = IOUitils.loadPlan(file)) != null) {
+
+                //测试2
+
+                Log.d("planname",plan.name);
+
                 plans.add(plan);
             }
         }

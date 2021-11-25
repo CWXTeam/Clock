@@ -63,18 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        planList.add(plan1);
 //        planList.add(plan2);
 
-            try {
-                planList = IOUitils.loadAllPlan();
-            } catch (ClockException e) {
-                e.printStackTrace();
-            }
 
-//        Plan plan1 = new Plan();
-//        plan1.name = "学习英语";
-//        plan1.description = "学习英语非常重要，所以我要努力";
-//        plan1.beginTime = 1637473520000L;
-//        plan1.finishTime = 1637480720231L;
-//        planList.add(plan1);
+//
+//        SpUtils sp=SpUtils.getInstance("user");
+//            sp.save("time",1637506943500L);
     }
 
     @Override
@@ -90,7 +82,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         if(v==test){
-            homeText.setText(planList.get(0).name);
+            try {
+                planList = IOUitils.loadAllPlan();
+            } catch (ClockException e) {
+                e.printStackTrace();
+            }
+
+            homeText.setText("haole");
         }
     }
 }
