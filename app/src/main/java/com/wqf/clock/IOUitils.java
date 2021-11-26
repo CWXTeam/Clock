@@ -22,8 +22,8 @@ public class IOUitils {
         sp.save("mould", plan.mould.name);
 
         //调试信息
-        if (sp.getString("plan",null)!=null)
-            Log.i(plan.name,"真的保存了");
+        if (sp.getString("plan", null) != null)
+            Log.i(plan.name, "真的保存了");
     }
 
     public static void saveMould(Mould mould) {
@@ -97,9 +97,9 @@ public class IOUitils {
 
         //测试1
 
-        for (String name:fileArray
-             ) {
-            Log.d("filename",name);
+        for (String name : fileArray
+        ) {
+            Log.d("filename", name);
         }
 
         //测试1通过
@@ -112,7 +112,7 @@ public class IOUitils {
 
                 //测试2
 
-                Log.d("planname",plan.name);
+                Log.d("planname", plan.name);
 
                 plans.add(plan);
             }

@@ -3,7 +3,10 @@ package com.wqf.clock;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,49 +27,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button test;
     //需要用到的全局变量
 
+    protected static MyDBOpenHelper myDBHelper;
     //保存的配置的目录
     protected final static String path = "/data/data/com.wqf.clock/shared_prefs";
     //当前检测到的Plan
     protected static List<Plan> planList = new ArrayList<>();
     //当前检测到的模板
-    protected static List<Mould> MouldList = new ArrayList<>();
+    protected static List<Mould> mouldList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //绑定组件，并设置监听器
+        bindView();
+        //第一次启动活动时就链接好数据库
+        myDBHelper = new MyDBOpenHelper(MainActivity.this, "my.db", null, 1);
+    }
 
+    private void bindView() {
         homeImage = findViewById(R.id.homeImage);
         homeText = findViewById(R.id.homeText);
 
         setPlanList = findViewById(R.id.setPlanList);
         save = findViewById(R.id.save);
-        test= findViewById(R.id.test);
+        test = findViewById(R.id.test);
 
         setPlanList.setOnClickListener(this);
         save.setOnClickListener(this);
         test.setOnClickListener(this);
-        //测试：
-//        Plan plan1 = new Plan();
-//        plan1.name = "学习英语";
-//        plan1.description = "学习英语非常重要，所以我要努力";
-//        plan1.beginTime = 1637473520000L;
-//        plan1.finishTime = 1637480720231L;
-//
-//        Plan plan2 = new Plan();
-//        plan2.name = "学习数学";
-//        plan2.description = "学习数学不重要，所以我不要努力";
-//        plan2.beginTime = 1637480790231L;
-//        plan2.finishTime = 1637486790231L;
-//
-//
-//        planList.add(plan1);
-//        planList.add(plan2);
+    }
 
-
-//
-//        SpUtils sp=SpUtils.getInstance("user");
-//            sp.save("time",1637506943500L);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        for (Plan plan : planList
+        ) {
+            SQLUtils.savePlan(plan);
+        }
     }
 
     @Override
@@ -77,13 +75,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (v == save) {
 //            保存所有配置
-            for(int i=0;i<planList.size();i++) {
-                IOUitils.savePlan(planList.get(i));
-            }
+
         }
-        if(v==test){
+        if (v == test) {
             try {
-                planList = IOUitils.loadAllPlan();
+                planList = SQLUtils.loadAllPlans();
             } catch (ClockException e) {
                 e.printStackTrace();
             }

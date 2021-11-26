@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 public class Plan {
 
+    //为实现数据库而新增的id属性
+
+    protected long planid = 0;
+
     protected String name;   // 计划的名称
     protected String description;  // 计划的描述
     protected long workTime;  // 单次学习的时间
@@ -25,6 +29,16 @@ public class Plan {
         clocks = new ArrayList<Clock>();
     }
 
+    protected Plan(String name, String description, long workTime, long breakTime, long beginTime, long finishTime, Mould mould) {
+        this.planid = System.currentTimeMillis();
+        this.name = name;
+        this.description = description;
+        this.workTime = workTime;
+        this.breakTime = breakTime;
+        this.beginTime = beginTime;
+        this.finishTime = finishTime;
+        this.mould = mould;
+    }
 
     protected ArrayList<Clock> setClocks() throws ClockException {
         // 根据开始时间、结束时间、单次学习时间和单次休息、使用的闹铃模板时间设定一定数量的闹钟

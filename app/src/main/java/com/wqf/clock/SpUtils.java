@@ -27,7 +27,7 @@ public class SpUtils {
             mSp.edit().putInt(key, (Integer) value).commit();
         } else if (value instanceof Long) {
             mSp.edit().putLong(key, (Long) value).commit();
-        }else if (value instanceof Boolean) {
+        } else if (value instanceof Boolean) {
             mSp.edit().putBoolean(key, (Boolean) value).commit();
         }
     }
@@ -44,6 +44,9 @@ public class SpUtils {
     public int getInteger(String key, int defValue) {
         return mSp.getInt(key, defValue);
     }
-    public long getLong(String key,long defValue){return  mSp.getLong(key,defValue);}
+
+    public long getLong(String key, long defValue) {
+        return mSp.getLong(key, defValue);
+    }
 
 }
