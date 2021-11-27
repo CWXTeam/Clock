@@ -21,6 +21,11 @@ public class MyDBOpenHelper extends SQLiteOpenHelper {
                 "begintime long," +
                 "finishtime long," +
                 "mouldname varchar(20))");
+
+        db.execSQL("create table mouldlist(" +
+                "name varchar(20) primary key," +
+                "breakclkpath varchar(30)," +
+                "workclkpath varchar(30))");
     }
 
     //软件版本号发生改变时调用
