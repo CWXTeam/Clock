@@ -7,11 +7,16 @@ public class Mould {
     String workClkPath;  // 上课铃音频路径
 
     Mould() {
-        name = "新模块";
+        name = "hanser";
         breakClkPath = null;
         workClkPath = null;
     }
 
+    Mould(String name,String breakClkPath,String workClkPath){
+        this.name=name;
+        this.breakClkPath=breakClkPath;
+        this.workClkPath=workClkPath;
+    }
 
     public void setName(String name) {
         this.name = name;

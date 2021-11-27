@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //需要用到的全局变量
 
     protected static MyDBOpenHelper myDBHelper;
-    //保存的配置的目录
-    protected final static String path = "/data/data/com.wqf.clock/shared_prefs";
     //当前检测到的Plan
     protected static List<Plan> planList = new ArrayList<>();
     //当前检测到的模板
@@ -41,8 +39,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         //绑定组件，并设置监听器
         bindView();
-        //第一次启动活动时就链接好数据库
+        //第一次启动活动时首先链接好数据库
         myDBHelper = new MyDBOpenHelper(MainActivity.this, "my.db", null, 1);
+
+        //初始化
+        SQLUtils.saveMould(new Mould("hanser","meiyou","meiyou"));
+        SQLUtils.saveMould(new Mould("diana","you","you"));
+//      然后加载所有的mould
+        mouldList=SQLUtils.loadAllMoulds();
+        for (Mould m:mouldList
+             ) {
+            Log.d("debug",m.name);
+        }
+        //然后加载所有的plan
+        try {
+            planList=SQLUtils.loadAllPlans();
+        } catch (ClockException e) {
+            e.printStackTrace();
+        }
     }
 
     private void bindView() {
@@ -61,10 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        for (Plan plan : planList
-        ) {
-            SQLUtils.savePlan(plan);
-        }
+
     }
 
     @Override
@@ -78,12 +89,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         if (v == test) {
-            try {
-                planList = SQLUtils.loadAllPlans();
-            } catch (ClockException e) {
-                e.printStackTrace();
-            }
-
             homeText.setText("haole");
         }
     }
