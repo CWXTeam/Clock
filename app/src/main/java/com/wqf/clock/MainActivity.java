@@ -43,19 +43,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         myDBHelper = new MyDBOpenHelper(MainActivity.this, "my.db", null, 1);
 
         //初始化
-        SQLUtils.saveMould(new Mould("hanser","meiyou","meiyou"));
-        SQLUtils.saveMould(new Mould("diana","you","you"));
+        SQLUtils.saveMould(new Mould("hanser", "meiyou", "meiyou"));
+        SQLUtils.saveMould(new Mould("diana", "you", "you"));
 //      然后加载所有的mould
-        mouldList=SQLUtils.loadAllMoulds();
-        for (Mould m:mouldList
-             ) {
-            Log.d("debug",m.name);
+        mouldList = SQLUtils.loadAllMoulds();
+        for (Mould m : mouldList
+        ) {
+            Log.d("debug", m.name);
         }
         //然后加载所有的plan
         try {
-            planList=SQLUtils.loadAllPlans();
+            planList = SQLUtils.loadAllPlans();
         } catch (ClockException e) {
             e.printStackTrace();
+        }
+        if (planList == null) {
+            Log.d("debug", "planlist是空的呢");
         }
     }
 

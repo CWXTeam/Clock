@@ -65,7 +65,7 @@ public class SQLUtils {
         if (!isInMouldList(m.name)) {
             Log.d(debug, "name为" + m.name + "的mould不在mouldlist中，可以插入这一条mould的信息");
             db.execSQL("INSERT INTO mouldlist(name,breakclkpath,workclkpath)" +
-                    "values(?,?,?)", new Object[]{m.name,m.breakClkPath,m.workClkPath});
+                    "values(?,?,?)", new Object[]{m.name, m.breakClkPath, m.workClkPath});
         }
 
     }
@@ -87,7 +87,7 @@ public class SQLUtils {
         if (isInMouldList(m.name)) {
             Log.d(debug, "name为" + m.name + "的mould已在mouldlist表中，满足条件，可以更新");
             db.execSQL("UPDATE planList SET name = ?,breakclkpath = ?,workclkpath = ?",
-                    new Object[]{m.name,m.breakClkPath,m.workClkPath});
+                    new Object[]{m.name, m.breakClkPath, m.workClkPath});
         } else
             Log.d(debug, "name为" + m.name + "的mould不在mouldlist表中，不满足条件，不可以更新");
     }
@@ -108,8 +108,8 @@ public class SQLUtils {
 
             //根据mouldname,在mouldList中查找有无叫这个的mould，如果有，则让tempMould等于它
             Mould tempMould = null;
-            if (isInMouldList(mouldname)){
-                tempMould=loadMould(mouldname);
+            if (isInMouldList(mouldname)) {
+                tempMould = loadMould(mouldname);
             }
             Plan tempPlan = new Plan(name, description, worktime, breaktime, begintime, finishtime, tempMould);
             //记得把id也对应上，否则plan的id为默认值
@@ -122,13 +122,13 @@ public class SQLUtils {
     }
 
     //返回对应名字的mould
-    public static Mould loadMould(String name){
+    public static Mould loadMould(String name) {
         Cursor cursor = db.rawQuery("SELECT * FROM mouldlist WHERE mouldname = ?",
                 new String[]{name});
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             String workClkPath = cursor.getString(cursor.getColumnIndex("workclkpath"));
             String breakClkPath = cursor.getString(cursor.getColumnIndex("breakclkpath"));
-            return new Mould(name,breakClkPath,workClkPath);
+            return new Mould(name, breakClkPath, workClkPath);
         }
         return null;
     }
@@ -151,8 +151,8 @@ public class SQLUtils {
                 String mouldname = cursor.getString(cursor.getColumnIndex("mouldname"));
                 //根据mouldname,在mouldList中查找有无叫这个的mould，如果有，则让tempMould等于它
                 Mould tempMould = null;
-                if (isInMouldList(mouldname)){
-                    tempMould=loadMould(mouldname);
+                if (isInMouldList(mouldname)) {
+                    tempMould = loadMould(mouldname);
                 }
                 tempPlan = new Plan(name, description, worktime, breaktime, begintime, finishtime, tempMould);
                 //记得把id也对应上，否则plan的id为默认值
@@ -163,24 +163,24 @@ public class SQLUtils {
             } while (cursor.moveToNext());
             return tempPlanList;
         }
-        return null;
+        return tempPlanList;
     }
 
     //返回mouldlist中所有mould
-    public static List<Mould> loadAllMoulds(){
+    public static List<Mould> loadAllMoulds() {
         Mould tempMould = null;
         List<Mould> tempMouldList = new ArrayList<>();
         Cursor cursor = db.rawQuery("SELECT * FROM mouldlist", null);
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             do {
                 String name = cursor.getString(cursor.getColumnIndex("name"));
                 String workClkPath = cursor.getString(cursor.getColumnIndex("workclkpath"));
                 String breakClkPath = cursor.getString(cursor.getColumnIndex("breakclkpath"));
-                tempMould = new Mould(name,breakClkPath,workClkPath);
+                tempMould = new Mould(name, breakClkPath, workClkPath);
                 tempMouldList.add(tempMould);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
             return tempMouldList;
         }
-        return null;
+        return tempMouldList;
     }
 }

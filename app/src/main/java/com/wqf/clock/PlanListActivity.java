@@ -44,8 +44,6 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(PlanListActivity.this, plan.name, Toast.LENGTH_SHORT).show();
 
             }
-
-
         });
     }
 
