@@ -59,16 +59,16 @@ public class Plan {
         ArrayList<Clock> clks = new ArrayList<Clock>();
         long clkTime = beginTime;
 
-        clks.add(new Clock(clkTime, new Mould(), "WORK"));  // 工作时间开始！
+        clks.add(new Clock(clkTime, mould, "WORK"));  // 工作时间开始！
 
 
         while (true) {
             // 如果工作一段时间后还没到finishTime，则响一次下课铃，开始休息
             clkTime += workTime;
             if (clkTime < finishTime) {
-                clks.add(new Clock(clkTime, new Mould(), "BREAK"));
+                clks.add(new Clock(clkTime, mould, "BREAK"));
             } else {  // 否则，在到达finishTime时响一次下课铃，结束
-                clks.add(new Clock(finishTime, new Mould(), "BREAK"));
+                clks.add(new Clock(finishTime, mould, "BREAK"));
                 break;
             }
 
@@ -76,9 +76,9 @@ public class Plan {
             clkTime += breakTime;
 
             if (clkTime < finishTime) {
-                clks.add(new Clock(clkTime, new Mould(), "WORK"));
+                clks.add(new Clock(clkTime, mould, "WORK"));
             } else {  // 否则，到达finishTime时再响一次下课铃，结束
-                clks.add(new Clock(finishTime, new Mould(), "BREAK"));
+                clks.add(new Clock(finishTime, mould, "BREAK"));
                 break;
             }
         }
