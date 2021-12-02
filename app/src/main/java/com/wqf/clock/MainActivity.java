@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (planList.isEmpty()) {
             Log.d("debug", "planlist是空的呢");
         }
+
+
+
+
+        Clock testclock = new Clock(1638425336000L);
+        testclock.mould.name="duoduo";
+        testclock.mode="WORK";
+        testclock.startWork(MainActivity.this);
     }
 
     private void bindView() {
