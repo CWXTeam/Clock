@@ -21,7 +21,8 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
     Button setPlan;//点击这个按钮新增一个计划
     Button back;//点击这个按钮返回主页
     ListView listView;
-
+    PlanAdapter arrayAdapter;
+    List<Plan> planList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,9 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
         setPlan.setOnClickListener(this);
         back.setOnClickListener(this);
 
-        PlanAdapter arrayAdapter = new PlanAdapter(PlanListActivity.this, R.layout.plan_items, planList);
+
+        planList.addAll(MainActivity.planList);
+        arrayAdapter = new PlanAdapter(PlanListActivity.this, R.layout.plan_items, planList);
         listView = findViewById(R.id.listview);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,6 +48,16 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
+        Log.d("debug","PlanListActivity中onCreate()方法已调用");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        planList.clear();
+        planList.addAll(MainActivity.planList);
+        arrayAdapter.notifyDataSetChanged();
+        Log.d("debug","PlanListActivity中onStart()方法已调用");
     }
 
     @Override
@@ -54,8 +67,9 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
         if (v == back) {
-            Intent intent = new Intent(PlanListActivity.this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(PlanListActivity.this, MainActivity.class);
+//            startActivity(intent);
+            PlanListActivity.this.finish();
         }
     }
 }

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (ClockException e) {
             e.printStackTrace();
         }
-        if (planList == null) {
+        if (planList.isEmpty()) {
             Log.d("debug", "planlist是空的呢");
         }
     }
