@@ -158,7 +158,7 @@ public class SQLUtils {
 
     //返回对应名字的mould
     public static Mould loadMould(String name) {
-        Cursor cursor = db.rawQuery("SELECT * FROM mouldlist WHERE mouldname = ?",
+        Cursor cursor = db.rawQuery("SELECT * FROM mouldlist WHERE name = ?",
                 new String[]{name});
         if (cursor.moveToFirst()) {
             String workClkPath = cursor.getString(cursor.getColumnIndex("workclkpath"));
