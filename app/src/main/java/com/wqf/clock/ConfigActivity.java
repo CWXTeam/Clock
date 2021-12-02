@@ -114,9 +114,7 @@ public class ConfigActivity extends AppCompatActivity {
                 //将plan录入planlist中
                 planList.add(plan);
                 SQLUtils.savePlan(plan);
-                //返回主页
-//                Intent intent = new Intent(ConfigActivity.this, MainActivity.class);
-//                startActivity(intent);
+
                 ConfigActivity.this.finish();
             }
         });

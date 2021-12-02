@@ -38,17 +38,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitApp();
-//        startPlans();
+        startPlans();
         //测试ClockActivity和Clock中startWork（）方法
-        Clock testclock = new Clock(1638436024000L);
-        testclock.mould.name="duoduo";
-        testclock.mode="WORK";
-        testclock.startWork(MainActivity.this,0);
-
-        Clock testclock2 = new Clock(1638457624000L);
-        testclock2.mould.name="hanser";
-        testclock2.mode="WORK";
-        testclock2.startWork(MainActivity.this,11254345);
+//        Clock testclock = new Clock(1638436024000L);
+//        testclock.mould.name="duoduo";
+//        testclock.mode="WORK";
+//        testclock.startWork(MainActivity.this,0);
+//
+//        Clock testclock2 = new Clock(1638457624000L);
+//        testclock2.mould.name="hanser";
+//        testclock2.mode="WORK";
+//        testclock2.startWork(MainActivity.this,11254345);
 
         //测试plan的setClock（）方法是否正确
 //        Mould mould = new Mould();
@@ -63,6 +63,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            String str = TimeUtil.getStringTime(clock.ringTime);
 //            Log.d("debug",str);
 //        }
+        for (Plan plan:planList
+             ) {
+            for (Clock clock:plan.clocks
+                 ) {
+                Log.d("debug",TimeUtil.getStringTime(clock.ringTime));
+            }
+        }
     }
 
     private void startPlans() {

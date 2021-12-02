@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class TimeUtil {
     //将时间戳*1000转化为日期
-    protected static String getStringTime(long time) {
+    public static String getStringTime(long time) {
         Date date = new Date(time);
 
         Format format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

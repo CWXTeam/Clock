@@ -63,7 +63,7 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v == setPlan) {
-            Intent intent = new Intent(PlanListActivity.this, ConfigActivity.class);
+            Intent intent = new Intent(PlanListActivity.this, NewConfigActivity.class);
             startActivity(intent);
         }
         if (v == back) {

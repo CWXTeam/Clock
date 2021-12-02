@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="此处输入计划名称"
         android:textColor="@color/purple_200"
-        android:textSize="24dp"></EditText>
+        android:textSize="24sp"></EditText>
 
     <EditText
         android:id="@+id/config_description"
@@ -44,7 +44,8 @@
             android:layout_height="wrap_content"
             android:text="年"
             android:textColor="@color/purple_200"
-            android:textSize="24dp"></TextView>
+            android:textSize="24dp">
+        </TextView>
 
         <EditText
             android:id="@+id/begin_month"

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:text="@string/name"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:text="@string/description"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/beginTime"
+        android:text="@string/beginTime"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/finishTime"
+        android:text="@string/finishTime"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/workTime"
+        android:text="@string/workTime"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/breakTime"
+        android:text="@string/breakTime"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chooseMould"
+        android:text="@string/chooseMould"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yes"
+        android:text="@string/yes"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:background="@drawable/bt_humditiy">
+    </Button>
+</LinearLayout>
