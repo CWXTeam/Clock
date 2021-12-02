@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Clock">
         <activity
+            android:name=".ClockActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConfigActivity"
             android:exported="false" />
         <activity

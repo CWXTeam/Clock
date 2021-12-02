@@ -104,12 +104,20 @@ public class ConfigActivity extends AppCompatActivity {
 
                 Mould mould = new Mould();
                 plan = new Plan(NAME, DESCRIPTION, WORK_TIME, BREAK_TIME, BEGIN_TIME, FINISH_TIME, mould);
+
+                try {
+                    plan.setClocks();
+                } catch (ClockException e) {
+                    e.printStackTrace();
+                }
+
                 //将plan录入planlist中
                 planList.add(plan);
-
+                SQLUtils.savePlan(plan);
                 //返回主页
-                Intent intent = new Intent(ConfigActivity.this, MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(ConfigActivity.this, MainActivity.class);
+//                startActivity(intent);
+                ConfigActivity.this.finish();
             }
         });
     }
