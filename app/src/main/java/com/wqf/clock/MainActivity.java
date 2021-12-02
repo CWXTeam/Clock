@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,11 +38,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitApp();
+//        startPlans();
         //测试ClockActivity和Clock中startWork（）方法
-//        Clock testclock = new Clock(1638425336000L);
-//        testclock.mould.name="duoduo";
-//        testclock.mode="WORK";
-//        testclock.startWork(MainActivity.this);
+        Clock testclock = new Clock(1638436024000L);
+        testclock.mould.name="duoduo";
+        testclock.mode="WORK";
+        testclock.startWork(MainActivity.this,0);
+
+        Clock testclock2 = new Clock(1638457624000L);
+        testclock2.mould.name="hanser";
+        testclock2.mode="WORK";
+        testclock2.startWork(MainActivity.this,11254345);
 
         //测试plan的setClock（）方法是否正确
 //        Mould mould = new Mould();
@@ -55,6 +63,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            String str = TimeUtil.getStringTime(clock.ringTime);
 //            Log.d("debug",str);
 //        }
+    }
+
+    private void startPlans() {
+        //先将planlist中的计划按照时间顺序排好
+        if (!planList.isEmpty()) {
+            Collections.sort(planList);
+            for (Plan plan : planList
+            ) {
+                startPlan(plan);
+            }
+        }
+    }
+
+    private void startPlan(Plan plan) {
+        for (Clock clock:plan.clocks
+             ) {
+            clock.startWork(MainActivity.this,1);
+        }
     }
 
     private void bindView() {
