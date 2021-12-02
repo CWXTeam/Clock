@@ -3,7 +3,7 @@ package com.wqf.clock;
 
 import java.util.ArrayList;
 
-public class Plan {
+public class Plan implements Comparable<Plan> {
 
     //为实现数据库而新增的id属性
 
@@ -129,5 +129,14 @@ public class Plan {
         return;
     }
 
+    @Override
+    public int compareTo(Plan o) {
+        int flag;
+        if (this.beginTime < o.beginTime)
+            flag = -1;
+        else
+            flag = 1;
+        return flag;
+    }
 }
 
