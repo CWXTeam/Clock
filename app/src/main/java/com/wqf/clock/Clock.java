@@ -1,9 +1,13 @@
 package com.wqf.clock;
 
+import static android.content.Context.ALARM_SERVICE;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 
 public class Clock {
     AlarmManager alarmManager;
@@ -13,6 +17,12 @@ public class Clock {
 
     protected Clock() {
         ringTime = 0;
+        mould = new Mould();
+        mode = "WORK";
+    }
+
+    protected Clock(long ringTime) {
+        this.ringTime = ringTime;
         mould = new Mould();
         mode = "WORK";
     }
@@ -39,8 +49,14 @@ public class Clock {
     }
 
     protected void startWork(Context context){
-        Intent intent = new Intent(context, ClockActivity.class);
-        PendingIntent pi = PendingIntent.getActivity(context, 0, intent, 0);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, ringTime, pi);
+        //当前时间小于设定响铃时间才开始工作，否则无需工作
+//        if (System.currentTimeMillis()<=ringTime) {
+            alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+            Intent intent = new Intent(context, ClockActivity.class);
+            intent.putExtra("mouldName",mould.name);
+            intent.putExtra("mode",mode);
+            PendingIntent pi = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, ringTime, pi);
+//        }
     }
 }
