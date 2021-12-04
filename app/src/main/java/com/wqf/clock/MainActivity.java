@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected static List<Plan> planList = new ArrayList<>();
     //当前检测到的模板
     protected static List<Mould> mouldList = new ArrayList<>();
-
+    //全局变量requestCode
+    protected static int requestCode=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void startPlan(Plan plan) {
         for (Clock clock:plan.clocks
              ) {
-            clock.startWork(MainActivity.this,1);
+            //一定要保证每次设置一个pendingIntent之后requestCode要自增，否则requestCode一致
+            //会造成AlarmManager识别后面的PendingIntent为同一个，于是之前的闹钟被覆盖
+            clock.startWork(MainActivity.this,requestCode++);
         }
     }
 
