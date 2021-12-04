@@ -53,7 +53,6 @@ public class Plan implements Comparable<Plan> {
             throw new ClockException("工作一次的时间不能超过总时间！");
         } else if (breakTime > (finishTime - beginTime)) {
             throw new ClockException("休息一次的时间不能超过总时间！");
-
         }
 
         ArrayList<Clock> clks = new ArrayList<Clock>();
@@ -148,10 +147,8 @@ public class Plan implements Comparable<Plan> {
         if (beginTime < p.beginTime && finishTime < p.beginTime)
             return false;
         //如果本计划两个时间都在p的“右边”，那么也肯定无交集
-        if (beginTime > p.finishTime && finishTime > p.finishTime)
-            return false;
+        return beginTime <= p.finishTime || finishTime <= p.finishTime;
         //其他情况一律认为有交集
-        return true;
     }
 }
 

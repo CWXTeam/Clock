@@ -13,6 +13,7 @@ public class ClockActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
     private int sourceID;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +22,8 @@ public class ClockActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String mouldName = intent.getStringExtra("mouldName");
         String mode = intent.getStringExtra("mode");
-        Log.d("debug:mouldName",mouldName);
-        Log.d("debug:mode",mode);
+        Log.d("debug:mouldName", mouldName);
+        Log.d("debug:mode", mode);
 
         if (mouldName.equals("hanser")) {
             if (mode.equals("WORK")) {
@@ -30,21 +31,21 @@ public class ClockActivity extends AppCompatActivity {
             } else {
                 sourceID = R.raw.hanserjojo;
             }
-        } else if(mouldName.equals("duoduo")){
-            if (mode.equals("WORK")){
-                sourceID=R.raw.duoduowork;
+        } else if (mouldName.equals("duoduo")) {
+            if (mode.equals("WORK")) {
+                sourceID = R.raw.duoduowork;
             } else {
-                sourceID=R.raw.duoduobreak;
+                sourceID = R.raw.duoduobreak;
             }
         }
-        mediaPlayer = mediaPlayer.create(this,sourceID);
+        mediaPlayer = MediaPlayer.create(this, sourceID);
         mediaPlayer.start();
         //创建一个闹钟提醒的对话框,点击确定关闭铃声与页面
 
         String toWorkMessage = "要开始工作啦！";
         String toBreakMessage = "可以休息啦！";
         String message = null;
-        if(mode.equals("WORK")){
+        if (mode.equals("WORK")) {
             message = toWorkMessage;
         } else {
             message = toBreakMessage;

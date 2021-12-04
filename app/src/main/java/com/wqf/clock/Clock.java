@@ -48,18 +48,18 @@ public class Clock {
         return;
     }
 
-    protected void startWork(Context context,int requestCode){
+    protected void startWork(Context context, int requestCode) {
         //当前时间小于设定响铃时间才开始工作，否则无需工作
 //        if (System.currentTimeMillis()<=ringTime) {
-            alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-            Intent intent = new Intent(context, ClockActivity.class);
-            intent.putExtra("mouldName",mould.name);
-            intent.putExtra("mode",mode);
-            PendingIntent pi = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-            Log.d("debug","alarmManager还没开始工作");
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, ringTime, pi);
-            Log.d("debug",TimeUtil.getStringTime(ringTime));
-            Log.d("debug","alarmManager工作了");
+        alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(context, ClockActivity.class);
+        intent.putExtra("mouldName", mould.name);
+        intent.putExtra("mode", mode);
+        PendingIntent pi = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        Log.d("debug", "alarmManager还没开始工作");
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, ringTime, pi);
+        Log.d("debug", TimeUtil.getStringTime(ringTime));
+        Log.d("debug", "alarmManager工作了");
 //        }
     }
 }

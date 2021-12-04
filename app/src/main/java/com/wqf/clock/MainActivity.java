@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //当前检测到的模板
     protected static List<Mould> mouldList = new ArrayList<>();
     //全局变量requestCode
-    protected static int requestCode=0;
+    protected static int requestCode = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            String str = TimeUtil.getStringTime(clock.ringTime);
 //            Log.d("debug",str);
 //        }
-        for (Plan plan:planList
-             ) {
-            for (Clock clock:plan.clocks
-                 ) {
-                Log.d("debug",TimeUtil.getStringTime(clock.ringTime));
+        for (Plan plan : planList
+        ) {
+            for (Clock clock : plan.clocks
+            ) {
+                Log.d("debug", TimeUtil.getStringTime(clock.ringTime));
             }
         }
     }
@@ -85,11 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startPlan(Plan plan) {
-        for (Clock clock:plan.clocks
-             ) {
+        for (Clock clock : plan.clocks
+        ) {
             //一定要保证每次设置一个pendingIntent之后requestCode要自增，否则requestCode一致
             //会造成AlarmManager识别后面的PendingIntent为同一个，于是之前的闹钟被覆盖
-            clock.startWork(MainActivity.this,requestCode++);
+            clock.startWork(MainActivity.this, requestCode++);
         }
     }
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void InitApp(){
+    private void InitApp() {
         //绑定组件，并设置监听器
         bindView();
         //第一次启动活动时首先链接好数据库

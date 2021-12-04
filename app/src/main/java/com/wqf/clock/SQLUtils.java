@@ -61,11 +61,10 @@ public class SQLUtils {
 
 
     // 删除TABLE planlist 中的指定计划p
-    public static void deletePlan(Plan p){
-        if(!isInPlanList(p.planid)){
+    public static void deletePlan(Plan p) {
+        if (!isInPlanList(p.planid)) {
             Log.d(debug, "id为" + p.planid + "的plan不在planlist中，该次删除操作被跳过");
-        }
-        else{
+        } else {
             db.execSQL("DELETE FROM planlist WHERE planid = ?", new Object[]{p.planid});
             Log.d(debug, "id为" + p.planid + "的plan已删除");
         }
@@ -73,7 +72,7 @@ public class SQLUtils {
 
 
     // 删除TABLE planlist 中所有计划p
-    public static void deleteAllPlans(){
+    public static void deleteAllPlans() {
         db.execSQL("DELETE FROM planlist");
         Log.d(debug, "TABLE planlist 中所有的元组已被删除");
     }
@@ -112,7 +111,7 @@ public class SQLUtils {
     }
 
     // 删除TABLE mouldlist中的指定模板m
-    public static void deleteMoule(Mould m){
+    public static void deleteMoule(Mould m) {
         if (isInMouldList(m.name)) {
             db.execSQL("DELETE FROM mouldlist WHERE name = ?", new Object[]{m.name});
             Log.d(debug, "name为" + m.name + "的mould已从mouldlist表中删除");
@@ -122,7 +121,7 @@ public class SQLUtils {
 
 
     // 删除TABLE mouldlist中的所有元组
-    public static void deleteAllMoules(){
+    public static void deleteAllMoules() {
         db.execSQL("DELETE FROM mouldlist");
         Log.d(debug, "TABLE mouldlist 中所有的元组已被删除");
     }

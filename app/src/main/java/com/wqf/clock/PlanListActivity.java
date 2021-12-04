@@ -23,6 +23,7 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
     ListView listView;
     PlanAdapter arrayAdapter;
     List<Plan> planList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
-        Log.d("debug","PlanListActivity中onCreate()方法已调用");
+        Log.d("debug", "PlanListActivity中onCreate()方法已调用");
     }
 
     @Override
@@ -57,7 +58,7 @@ public class PlanListActivity extends AppCompatActivity implements View.OnClickL
         planList.clear();
         planList.addAll(MainActivity.planList);
         arrayAdapter.notifyDataSetChanged();
-        Log.d("debug","PlanListActivity中onStart()方法已调用");
+        Log.d("debug", "PlanListActivity中onStart()方法已调用");
     }
 
     @Override
