@@ -8,25 +8,24 @@ public class Plan implements Comparable<Plan> {
     //为实现数据库而新增的id属性
 
     protected long planid = 0;
-
+    protected boolean onStart=false;//计划是否处于工作状态
     protected String name;   // 计划的名称
     protected String description;  // 计划的描述
     protected long workTime;  // 单次学习的时间
     protected long breakTime;  // 单次休息的时间
     protected long beginTime;  // 开始时间
     protected long finishTime;  // 结束时间
-    protected Mould mould;  // 使用的闹铃模板
-    protected ArrayList<Clock> clocks;  // 一组闹钟
+    protected Mould mould=new Mould();  // 使用的闹铃模板
+    protected ArrayList<Clock> clocks=new ArrayList<Clock>();;  // 一组闹钟
 
     protected Plan() {
+        this.planid = System.currentTimeMillis();
         name = "新计划";
         description = "";
         workTime = 0;
         breakTime = 0;
         beginTime = System.currentTimeMillis();
         finishTime = beginTime;
-        mould = new Mould();
-        clocks = new ArrayList<Clock>();
     }
 
     protected Plan(String name, String description, long workTime, long breakTime, long beginTime, long finishTime, Mould mould) {
