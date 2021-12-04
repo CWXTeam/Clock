@@ -138,5 +138,20 @@ public class Plan implements Comparable<Plan> {
             flag = 1;
         return flag;
     }
+
+    //判断是否和另一计划在计划时间上有无交集
+    //例如：参数中的plan开始计划时间是0，结束时间是20；
+    //本计划中的开始计划时间是2，结束时间是22，
+    //则应输出：true
+    public boolean haveIntersectionWith(Plan p) {
+        //如果本计划两个时间都在p的“左边”，那么肯定无交集
+        if (beginTime < p.beginTime && finishTime < p.beginTime)
+            return false;
+        //如果本计划两个时间都在p的“右边”，那么也肯定无交集
+        if (beginTime > p.finishTime && finishTime > p.finishTime)
+            return false;
+        //其他情况一律认为有交集
+        return true;
+    }
 }
 
