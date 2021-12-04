@@ -39,39 +39,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //初始化app
         InitApp();
-        startPlans();
-        //测试ClockActivity和Clock中startWork（）方法
-//        Clock testclock = new Clock(1638436024000L);
-//        testclock.mould.name="duoduo";
-//        testclock.mode="WORK";
-//        testclock.startWork(MainActivity.this,0);
-//
-//        Clock testclock2 = new Clock(1638457624000L);
-//        testclock2.mould.name="hanser";
-//        testclock2.mode="WORK";
-//        testclock2.startWork(MainActivity.this,11254345);
 
-        //测试plan的setClock（）方法是否正确
-//        Mould mould = new Mould();
-//        Plan plan = new Plan("学习数学", "这个计划是为了期末数学考试", 40 * 60 * 1000, 20 * 60 * 1000, 1638417600000L, 1638432000000L, mould);
-//        try {
-//            plan.setClocks();
-//        } catch (ClockException e) {
-//            e.printStackTrace();
-//        }
-//        for (Clock clock:plan.clocks
-//             ) {
-//            String str = TimeUtil.getStringTime(clock.ringTime);
-//            Log.d("debug",str);
-//        }
-        for (Plan plan : planList
-        ) {
-            for (Clock clock : plan.clocks
-            ) {
-                Log.d("debug", TimeUtil.getStringTime(clock.ringTime));
-            }
-        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //每次页面显示时都重新设置所有计划的闹钟
+        startPlans();
     }
 
     private void startPlans() {
