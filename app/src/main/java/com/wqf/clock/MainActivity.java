@@ -20,6 +20,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "debug";
     //组件
     ImageView homeImage;
     TextView homeText;
@@ -55,9 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //先将planlist中的计划按照时间顺序排好
         if (!planList.isEmpty()) {
             Collections.sort(planList);
+            //再对于每一个不处于工作状态的plan变成工作状态
             for (Plan plan : planList
             ) {
-                startPlan(plan);
+                if (!plan.onStart) {
+                    startPlan(plan);
+                }
             }
         }
     }
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //会造成AlarmManager识别后面的PendingIntent为同一个，于是之前的闹钟被覆盖
             clock.startWork(MainActivity.this, requestCode++);
         }
+        plan.onStart = true;
     }
 
     private void bindView() {
@@ -76,12 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         homeText = findViewById(R.id.homeText);
 
         setPlanList = findViewById(R.id.setPlanList);
-        save = findViewById(R.id.save);
-        test = findViewById(R.id.test);
 
         setPlanList.setOnClickListener(this);
-        save.setOnClickListener(this);
-        test.setOnClickListener(this);
     }
 
     @Override
@@ -89,13 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == setPlanList) {
             Intent intent = new Intent(MainActivity.this, PlanListActivity.class);
             startActivity(intent);
-        }
-        if (v == save) {
-            //保存所有配置
-
-        }
-        if (v == test) {
-            homeText.setText("haole");
         }
     }
 
@@ -114,6 +108,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             planList = SQLUtils.loadAllPlans();
         } catch (ClockException e) {
             e.printStackTrace();
+        }
+        if (planList.isEmpty()) {
+            Log.d(TAG, "InitApp: planlist是空的");
         }
     }
 }

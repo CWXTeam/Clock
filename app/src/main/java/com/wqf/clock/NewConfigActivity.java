@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 public class NewConfigActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "debug";
     Button name;
     Button description;
     Button beginTime;
@@ -212,8 +213,13 @@ public class NewConfigActivity extends AppCompatActivity implements View.OnClick
             Log.d("debug:检查生成的plan是否合法-breaktime", plan.breakTime / 1000 / 60 + "");
             Log.d("debug:检查生成的plan是否合法-mouldname", plan.mould.name);
             //第一道检测工序：检测plan本身的各属性是否合法
-            if (plan.workTime <= 0 || plan.breakTime <= 0 || plan.finishTime <= plan.beginTime || plan.workTime > (plan.finishTime - plan.beginTime) || plan.breakTime > (plan.finishTime = plan.beginTime))
+            if (plan.beginTime >= plan.finishTime) {
                 isLegal = false;
+            } else if (0 >= plan.workTime || 0 >= plan.breakTime || plan.workTime > (plan.finishTime - plan.beginTime) || plan.breakTime > (plan.finishTime - plan.beginTime)) {
+                isLegal = false;
+            }
+            Log.d(TAG, "onClick: begintime" + TimeUtil.getStringTime(plan.beginTime));
+            Log.d(TAG, "onClick: finishtime" + TimeUtil.getStringTime(plan.finishTime));
             //判断生成的plan是否跟planList中任意一个plan存在交集，只要与其中任意一个存在交集，则不满足条件
             for (Plan p : planList
             ) {
@@ -231,6 +237,8 @@ public class NewConfigActivity extends AppCompatActivity implements View.OnClick
                 } catch (ClockException e) {
                     e.printStackTrace();
                 }
+                Log.d(TAG, "onClick: begintime" + TimeUtil.getStringTime(plan.beginTime));
+                Log.d(TAG, "onClick: finishtime" + TimeUtil.getStringTime(plan.finishTime));
                 planList.add(plan);
                 SQLUtils.savePlan(plan);
 
