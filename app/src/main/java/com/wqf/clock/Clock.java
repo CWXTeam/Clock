@@ -55,7 +55,7 @@ public class Clock {
         Intent intent = new Intent(context, ClockActivity.class);
         intent.putExtra("mouldName", mould.name);
         intent.putExtra("mode", mode);
-        PendingIntent pi = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pi = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Log.d("debug", "alarmManager还没开始工作");
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, ringTime, pi);
         Log.d("debug", TimeUtil.getStringTime(ringTime));
