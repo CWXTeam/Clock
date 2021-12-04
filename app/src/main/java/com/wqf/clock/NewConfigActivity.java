@@ -175,7 +175,7 @@ public class NewConfigActivity extends AppCompatActivity implements View.OnClick
             final int[] index = {0};
             String [] items=new String[]{"hanser","多多poi"};
             final AlertDialog.Builder builder=new AlertDialog.Builder(this);
-            builder.setTitle("请选择你的学历:");
+            builder.setTitle("请选择闹铃模板:");
             builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
