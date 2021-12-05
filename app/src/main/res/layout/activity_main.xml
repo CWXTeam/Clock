@@ -30,14 +30,4 @@
         android:layout_gravity="center_horizontal"
         android:textColor="@color/purple_200">
     </Button>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/save"
-        android:text="保存所有配置"
-        android:textSize="24dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/purple_200">
-    </Button>
 </LinearLayout>
